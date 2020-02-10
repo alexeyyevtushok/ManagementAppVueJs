@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "name": "Ossur",
+    "teams": ["QA", "DEV"],
+    "users": [
+      {
+        "id": 1,
+        "email": "first@itera.no",
+        "role": {
+          "id": 1,
+          "name": "QA",
+          "seniority": "middle"
+        }
+      },
+      {
+        "id": 2,
+        "email": "second@itera.no",
+        "role": {
+          "id": 2,
+          "name": "DEV",
+          "seniority": "junior"
+        }
+      }
+    ],
+    "manager": {
+      "id": 1,
+      "email": "manager1@itera.no"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Cognite",
+    "teams": ["QA", "DEV"],
+    "users": [
+      {
+        "id": 3,
+        "email": "third@itera.no",
+        "role": {
+          "id": 1,
+          "name": "QA",
+          "seniority": "middle"
+        }
+      },
+      {
+        "id": 4,
+        "email": "fourth@itera.no",
+        "role": {
+          "id": 2,
+          "name": "DEV",
+          "seniority": "junior"
+        }
+      }
+    ],
+    "manager": {
+      "id": 2,
+      "email": "second.manager@itera.no"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Placemaster",
+    "teams": [
+      "QA",
+      "DEV",
+      "DEVOPS"
+    ],
+    "users": [
+      {
+        "id": 1,
+        "email": "first@itera.no",
+        "role": {
+          "id": 1,
+          "name": "QA",
+          "seniority": "middle"
+        }
+      },
+      {
+        "id": 2,
+        "email": "second@itera.no",
+        "role": {
+          "id": 2,
+          "name": "DEV",
+          "seniority": "junior"
+        }
+      }
+    ]
+  }
+]
