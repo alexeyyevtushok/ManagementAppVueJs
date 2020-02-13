@@ -1,7 +1,7 @@
 <template>
   <v-card v-if="body">
     <v-card-title>
-      Projects
+      {{ tableName }}
       <v-spacer />
       <v-text-field
         v-model="search"
@@ -10,7 +10,7 @@
         single-line
         hide-details
       />
-      <v-btn small>Add project</v-btn>
+      <v-btn small>Add {{ tableName }}</v-btn>
     </v-card-title>
     <v-data-table
       :headers="headers"
@@ -27,8 +27,12 @@ export default {
   name: "Table",
   props: ["headers", "body"],
   data: () => ({
+    tableName: "",
     search: ""
-  })
+  }),
+  mounted() {
+    this.tableName = this.$route.name;
+  }
 };
 </script>
 
