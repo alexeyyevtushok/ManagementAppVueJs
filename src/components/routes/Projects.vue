@@ -31,7 +31,7 @@ export default {
           name: item.name,
           teams: item.teams,
           users: item.users.length,
-          manager: item.manager ? item.manager.email : "No manager"
+          manager: item.manager || { id: null, email: "No manager" }
         }))
         .sort(item => (item.manager ? -1 : 1));
     }

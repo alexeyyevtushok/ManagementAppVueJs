@@ -20,11 +20,12 @@
                   </v-col>
                   <v-col xs="12">
                     <v-select
+                      v-model="form.manager"
                       :items="managersList"
-                      item-value="id"
                       item-text="email"
                       label="Managers list"
                       @input="onSelect"
+                      return-object
                       required
                     />
                   </v-col>
@@ -48,7 +49,7 @@ import { getManagers } from "@/service/managers.service";
 import { setProjectName, setManager } from "@/service/projects.service";
 
 export default {
-  name: "EditModal",
+  name: "EditModalProject",
   props: ["toggleEditModal", "currentItem", "editModal"],
   data: () => ({
     managersList: [],
@@ -59,6 +60,7 @@ export default {
   }),
   mounted() {
     this.form.name = this.currentItem.name;
+    this.form.manager = this.currentItem.manager;
     getManagers("api/managers.json").then(
       res => (this.managersList = res.data)
     );
@@ -75,9 +77,9 @@ export default {
       this.form.manager = value;
     },
     formSubmit() {
-      if (this.form.manager) {
+      if (this.form.manager !== this.currentItem.manager) {
         setManager(`/api/projects${this.form.id}/assign-manager`, {
-          id: this.form.manager
+          id: this.form.manager.id
         });
       }
       if (this.form.name !== this.currentItem.name) {

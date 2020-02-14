@@ -28,8 +28,14 @@
         </template>
       </v-data-table>
     </v-card>
-    <EditModal
-      v-if="editModal"
+    <EditModalProjects
+      v-if="editModal && tableName.toLowerCase() === 'projects'"
+      :toggleEditModal="toggleEditModal"
+      :currentItem="currentItem"
+      :editModal="editModal"
+    />
+    <EditModalUsers
+      v-if="editModal && tableName.toLowerCase() === 'users'"
       :toggleEditModal="toggleEditModal"
       :currentItem="currentItem"
       :editModal="editModal"
@@ -39,10 +45,12 @@
 
 <script>
 import { deleteTableItem } from "@/service/table.service";
-import EditModal from "@/components/blocks/Modal/EditModalProjects";
+import EditModalProjects from "@/components/blocks/Modal/EditModalProjects";
+import EditModalUsers from "@/components/blocks/Modal/EditModalUsers";
+
 export default {
   name: "Table",
-  components: { EditModal },
+  components: { EditModalProjects, EditModalUsers },
   props: ["headers", "body"],
   data: () => ({
     tableName: "",

@@ -26,9 +26,9 @@ export default {
   methods: {
     usersListToTable(list) {
       return list.map(item => ({
+        id: item.id,
         email: item.email,
-        roleId: item.role.roleId,
-        roleName: item.role.roleName
+        role: item.role
       }));
     }
   }
