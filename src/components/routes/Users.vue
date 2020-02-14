@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Table from "@/components/blocks/Table";
+import Table from "@/components/blocks/Table/Table";
 import { userHeaders } from "@/constants/tableData";
-import { getTableData } from "@/service/getTableData";
+import { getTableData } from "@/service/table.service";
 
 export default {
   name: "Users",

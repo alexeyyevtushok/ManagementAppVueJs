@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Table from "@/components/blocks/Table";
+import Table from "@/components/blocks/Table/Table";
 import { projectsHeaders } from "@/constants/tableData";
-import { getTableData } from "@/service/getTableData";
+import { getTableData } from "@/service/table.service";
 
 export default {
   name: "Projects",
@@ -27,6 +27,7 @@ export default {
     projectsListToTable(list) {
       return list
         .map(item => ({
+          id: item.id,
           name: item.name,
           teams: item.teams,
           users: item.users.length,

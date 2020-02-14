@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Roles from "./components/Roles.vue";
-import Users from "./components/Users.vue";
-import Projects from "./components/Projects.vue";
+import Roles from "./components/routes/Roles.vue";
+import Users from "./components/routes/Users.vue";
+import Projects from "./components/routes/Projects.vue";
 
 declare interface RouterProps extends RouteConfig {
   icon?: string;
