@@ -16,7 +16,7 @@
                       required
                       :value="currentItem.name"
                       v-model="form.name"
-                    ></v-text-field>
+                    />
                   </v-col>
                   <v-col xs="12">
                     <v-select

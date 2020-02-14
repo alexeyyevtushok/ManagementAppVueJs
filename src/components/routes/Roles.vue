@@ -26,8 +26,9 @@ export default {
   methods: {
     usersListToTable(list) {
       return list.map(item => ({
+        roleId: item.roleId,
         roleName: item.roleName,
-        seniorities: item.seniorities.map(item => " " + item.title)
+        seniorities: item.seniorities.map(item => item.title)
       }));
     }
   }

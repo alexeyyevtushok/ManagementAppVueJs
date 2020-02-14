@@ -40,6 +40,12 @@
       :currentItem="currentItem"
       :editModal="editModal"
     />
+    <EditModalRoles
+      v-if="editModal && tableName.toLowerCase() === 'roles'"
+      :toggleEditModal="toggleEditModal"
+      :currentItem="currentItem"
+      :editModal="editModal"
+    />
   </div>
 </template>
 
@@ -47,10 +53,11 @@
 import { deleteTableItem } from "@/service/table.service";
 import EditModalProjects from "@/components/blocks/Modal/EditModalProjects";
 import EditModalUsers from "@/components/blocks/Modal/EditModalUsers";
+import EditModalRoles from "@/components/blocks/Modal/EditModalRoles";
 
 export default {
   name: "Table",
-  components: { EditModalProjects, EditModalUsers },
+  components: { EditModalProjects, EditModalUsers, EditModalRoles },
   props: ["headers", "body"],
   data: () => ({
     tableName: "",
