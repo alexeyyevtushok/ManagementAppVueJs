@@ -1,0 +1,44 @@
+[
+  {
+    "roleId": 1,
+    "roleName": "QA",
+    "seniorities": [
+      {
+        "id": 1,
+        "title": "Junior",
+        "order": 1
+      },
+      {
+        "id": 2,
+        "title": "Middle",
+        "order": 2
+      },
+      {
+        "id": 3,
+        "title": "Senior",
+        "order": 3
+      }
+    ]
+  },
+  {
+      "roleId": 2,
+      "roleName": "DEV",
+      "seniorities": [
+        {
+          "id": 1,
+          "title": "Junior",
+          "order": 1
+        },
+        {
+          "id": 2,
+          "title": "Middle",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "title": "Senior",
+          "order": 3
+        }
+      ]
+    }
+]
