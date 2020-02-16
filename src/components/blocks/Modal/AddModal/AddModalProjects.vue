@@ -19,11 +19,13 @@
 </template>
 
 <script>
-import { setProjectName } from "@/service/projects.service";
+import { postItems } from "@/service/postItems.service";
 
 export default {
   name: "AddModalProjects",
-  props: ["toggleAddModal"],
+  props: {
+    toggleAddModal: Function
+  },
   data: () => ({
     form: {
       name: ""
@@ -34,7 +36,7 @@ export default {
       this.toggleAddModal();
     },
     onSave() {
-      setProjectName("api/projects", { name: this.form.name });
+      postItems("api/projects", { name: this.form.name });
       this.toggleAddModal();
     }
   }

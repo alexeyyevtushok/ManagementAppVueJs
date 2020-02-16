@@ -34,11 +34,13 @@
 </template>
 
 <script>
-import { addUsers } from "@/service/users.service";
+import { postItems } from "@/service/postItems.service";
 
 export default {
   name: "AddModalUsers",
-  props: ["toggleAddModal"],
+  props: {
+    toggleAddModal: Function
+  },
   data: () => ({
     form: {
       usersList: ""
@@ -56,8 +58,7 @@ export default {
     onSave() {
       const data = this.form.usersList.split(";");
       if (Array.isArray(data)) {
-        addUsers("api/users", Array);
-        console.log(data);
+        postItems("api/users", data);
       }
       this.toggleAddModal();
     }
@@ -75,6 +76,7 @@ export default {
 li {
   list-style: none;
   color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
 }
 
 form > .row {

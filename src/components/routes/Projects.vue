@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import Table from "@/components/blocks/Table/Table";
-import { projectsHeaders } from "@/constants/tableData";
-import { getTableData } from "@/service/table.service";
+import Table from "@/components/blocks/Table/Table.vue";
+import { projectsHeaders } from "@/constants/tableData.js";
+import { getTableData } from "@/service/getItems.service";
 
 export default {
   name: "Projects",
@@ -38,5 +38,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

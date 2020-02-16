@@ -21,9 +21,17 @@
         class="elevation-1"
       >
         <template v-slot:item.action="{ item }">
-          <v-icon small class="mr-2" @click="toggleEditModal(item)"
-            >edit</v-icon
+          <v-icon
+            v-if="tableName.toLowerCase() === 'projects'"
+            small
+            class="mr-2"
+            @click="toggleInfoModal(item)"
           >
+            info
+          </v-icon>
+          <v-icon small class="mr-2" @click="toggleEditModal(item)">
+            edit
+          </v-icon>
           <v-icon small @click="deleteItem(item)">delete</v-icon>
         </template>
       </v-data-table>
@@ -34,23 +42,33 @@
       :currentItem="currentItem"
     />
     <AddModal v-if="addModal" :toggleAddModal="toggleAddModal" />
+    <InfoProjectModal
+      v-if="infoModal"
+      :currentItem="currentItem"
+      :toggleInfoModal="toggleInfoModal"
+    />
   </div>
 </template>
 
 <script>
-import { deleteTableItem } from "@/service/table.service";
+import { deleteTableItem } from "@/service/deleteItems.service";
 import EditModal from "@/components/blocks/Modal/EditModal/EditModal";
 import AddModal from "@/components/blocks/Modal/AddModal/AddModal";
+import InfoProjectModal from "@/components/blocks/Modal/InfoProjectModal/InfoProjectModal";
 
 export default {
   name: "Table",
-  components: { AddModal, EditModal },
-  props: ["headers", "body"],
+  components: { InfoProjectModal, AddModal, EditModal },
+  props: {
+    headers: Array,
+    body: Array
+  },
   data: () => ({
     tableName: "",
     search: "",
     editModal: false,
     addModal: false,
+    infoModal: false,
     currentItem: null
   }),
   mounted() {
@@ -66,6 +84,10 @@ export default {
     },
     toggleAddModal() {
       this.addModal = !this.addModal;
+    },
+    toggleInfoModal(item) {
+      this.infoModal = !this.infoModal;
+      this.currentItem = item;
     },
     deleteItem(item) {
       const index = this.body.indexOf(item);

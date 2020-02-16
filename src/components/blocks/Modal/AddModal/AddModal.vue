@@ -28,7 +28,9 @@ import AddModalProjects from "@/components/blocks/Modal/AddModal/AddModalProject
 
 export default {
   name: "AddModal",
-  props: ["toggleAddModal"],
+  props: {
+    toggleAddModal: Function
+  },
   components: { AddModalUsers, AddModalRoles, AddModalProjects },
   data: () => ({
     currentRoute: ""

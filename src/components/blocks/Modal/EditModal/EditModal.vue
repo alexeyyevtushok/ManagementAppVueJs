@@ -29,7 +29,10 @@ import EditModalProjects from "./EditModalProjects";
 
 export default {
   name: "EditModal",
-  props: ["toggleEditModal", "currentItem"],
+  props: {
+    toggleEditModal: Function,
+    currentItem: Object
+  },
   components: { EditModalRoles, EditModalUsers, EditModalProjects },
   data: () => ({
     currentRoute: ""

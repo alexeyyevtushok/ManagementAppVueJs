@@ -35,11 +35,13 @@
 </template>
 
 <script>
-import { setRole } from "@/service/roles.service";
+import { postItems } from "@/service/postItems.service";
 
 export default {
   name: "AddModalRoles",
-  props: ["toggleAddModal"],
+  props: {
+    toggleAddModal: Function
+  },
   data: () => ({
     form: {
       roleName: "",
@@ -55,15 +57,17 @@ export default {
       this.toggleAddModal();
     },
     onSubmit() {
-      const seniorities = this.form.seniorities.split(";");
-      setRole("api/roles", {
-        roleName: this.form.roleName,
-        seniorities: seniorities.map((item, index) => ({
-          id: index + 1,
-          title: item,
-          order: index + 1
-        }))
-      });
+      if (this.form.roleName.length > 1 && this.form.seniorities.length > 1) {
+        const seniorities = this.form.seniorities.split(";");
+        postItems("api/roles", {
+          roleName: this.form.roleName,
+          seniorities: seniorities.map((item, index) => ({
+            id: index + 1,
+            title: item,
+            order: index + 1
+          }))
+        });
+      }
     }
   }
 };

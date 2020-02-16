@@ -7,7 +7,7 @@
 <script>
 import Table from "@/components/blocks/Table/Table";
 import { rolesHeaders } from "@/constants/tableData";
-import { getTableData } from "@/service/table.service";
+import { getTableData } from "@/service/getItems.service";
 
 export default {
   name: "Roles",

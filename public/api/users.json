@@ -2,6 +2,7 @@
   {
     "id": 1,
     "email": "first@itera.no",
+    "positionName": "Tester",
     "role": {
       "roleId": 1,
       "roleName": "QA",
@@ -27,6 +28,7 @@
   {
     "id": 2,
     "email": "second@itera.no",
+    "positionName": "FE",
     "role": {
       "roleId": 2,
       "roleName": "DEV",
@@ -52,6 +54,7 @@
   {
     "id": 3,
     "email": "third@itera.no",
+    "positionName": "Tester",
     "role": {
       "roleId": 1,
       "roleName": "QA",
@@ -77,6 +80,7 @@
   {
     "id": 4,
     "email": "fourth@itera.no",
+    "positionName": "FE",
     "role": {
       "roleId": 2,
       "roleName": "DEV",

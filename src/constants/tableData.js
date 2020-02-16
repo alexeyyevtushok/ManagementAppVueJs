@@ -10,6 +10,7 @@ export const userHeaders = [
   { text: "Email", value: "email" },
   { text: "Role ID", value: "role.roleId" },
   { text: "Role Name", value: "role.roleName" },
+  { text: "Position Name", value: "positionName" },
   { text: "Actions", value: "action", sortable: false }
 ];
 

@@ -37,12 +37,15 @@
 </template>
 
 <script>
-import { setRole } from "@/service/roles.service";
+import { postItems } from "@/service/postItems.service";
 import { unObservable, compareArrays } from "@/helpers/array.helper";
 
 export default {
   name: "EditModalRoles",
-  props: ["toggleEditModal", "currentItem"],
+  props: {
+    toggleEditModal: Function,
+    currentItem: Object
+  },
   data: () => ({
     rolesList: [],
     form: {
@@ -69,7 +72,7 @@ export default {
         this.form.roleName !== this.currentItem.roleName ||
         !compareArrays(newSeniorities, prevSeniorities)
       ) {
-        setRole("api/roles", {
+        postItems("api/roles", {
           roleId: this.currentItem.roleId,
           roleName: this.form.roleName,
           seniorities: newSeniorities.map((item, index) => ({

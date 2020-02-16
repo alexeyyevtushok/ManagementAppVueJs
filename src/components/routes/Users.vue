@@ -7,7 +7,7 @@
 <script>
 import Table from "@/components/blocks/Table/Table";
 import { userHeaders } from "@/constants/tableData";
-import { getTableData } from "@/service/table.service";
+import { getTableData } from "@/service/getItems.service";
 
 export default {
   name: "Users",
@@ -28,7 +28,8 @@ export default {
       return list.map(item => ({
         id: item.id,
         email: item.email,
-        role: item.role
+        role: item.role,
+        positionName: item.positionName
       }));
     }
   }

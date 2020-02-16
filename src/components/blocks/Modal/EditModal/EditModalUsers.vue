@@ -31,12 +31,15 @@
 </template>
 
 <script>
-import { getRoles } from "@/service/roles.service";
-import { changeUserRole } from "@/service/users.service";
+import { getItems } from "@/service/getItems.service";
+import { putItems } from "@/service/putItems.service";
 
 export default {
   name: "EditModalUsers",
-  props: ["toggleEditModal", "currentItem"],
+  props: {
+    toggleEditModal: Function,
+    currentItem: Object
+  },
   data: () => ({
     rolesList: [],
     form: {
@@ -45,7 +48,7 @@ export default {
   }),
   mounted() {
     this.form.role = this.currentItem.role;
-    getRoles("api/roles.json").then(res => (this.rolesList = res.data));
+    getItems("api/roles.json").then(res => (this.rolesList = res.data));
   },
   methods: {
     onClose() {
@@ -53,7 +56,7 @@ export default {
     },
     onSave() {
       if (this.currentItem.role !== this.form.role) {
-        changeUserRole(`/api/users/${this.currentItem.id}`, {
+        putItems(`/api/users/${this.currentItem.id}`, {
           ...this.currentItem,
           role: this.form.role
         });

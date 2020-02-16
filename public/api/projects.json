@@ -10,6 +10,7 @@
         "role": {
           "roleId": 1,
           "roleName": "QA",
+          "positionName": "Tester",
           "seniorities": [
             {
               "id": 1,
@@ -32,6 +33,7 @@
       {
         "id": 2,
         "email": "second@itera.no",
+        "positionName": "FE",
         "role": {
           "roleId": 2,
           "roleName": "DEV",
@@ -68,6 +70,7 @@
       {
         "id": 3,
         "email": "third@itera.no",
+        "positionName": "Tester",
         "role": {
           "roleId": 1,
           "roleName": "QA",
@@ -96,6 +99,7 @@
         "role": {
           "roleId": 2,
           "roleName": "DEV",
+          "positionName": "FE",
           "seniorities": [
             {
               "id": 1,
@@ -136,6 +140,7 @@
         "role": {
           "roleId": 1,
           "roleName": "QA",
+          "positionName": "Tester",
           "seniorities": [
             {
               "id": 1,
@@ -161,6 +166,7 @@
         "role": {
           "roleId": 2,
           "roleName": "DEV",
+          "positionName": "FE",
           "seniorities": [
             {
               "id": 1,
