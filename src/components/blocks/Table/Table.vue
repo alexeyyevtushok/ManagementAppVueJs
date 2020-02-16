@@ -11,7 +11,7 @@
           single-line
           hide-details
         />
-        <v-btn small>Add {{ tableName }}</v-btn>
+        <v-btn @click="toggleAddModal" small>Add {{ tableName }}</v-btn>
       </v-card-title>
       <v-data-table
         :headers="headers"
@@ -28,41 +28,29 @@
         </template>
       </v-data-table>
     </v-card>
-    <EditModalProjects
-      v-if="editModal && tableName.toLowerCase() === 'projects'"
+    <EditModal
+      v-if="editModal"
       :toggleEditModal="toggleEditModal"
       :currentItem="currentItem"
-      :editModal="editModal"
     />
-    <EditModalUsers
-      v-if="editModal && tableName.toLowerCase() === 'users'"
-      :toggleEditModal="toggleEditModal"
-      :currentItem="currentItem"
-      :editModal="editModal"
-    />
-    <EditModalRoles
-      v-if="editModal && tableName.toLowerCase() === 'roles'"
-      :toggleEditModal="toggleEditModal"
-      :currentItem="currentItem"
-      :editModal="editModal"
-    />
+    <AddModal v-if="addModal" :toggleAddModal="toggleAddModal" />
   </div>
 </template>
 
 <script>
 import { deleteTableItem } from "@/service/table.service";
-import EditModalProjects from "@/components/blocks/Modal/EditModalProjects";
-import EditModalUsers from "@/components/blocks/Modal/EditModalUsers";
-import EditModalRoles from "@/components/blocks/Modal/EditModalRoles";
+import EditModal from "@/components/blocks/Modal/EditModal/EditModal";
+import AddModal from "@/components/blocks/Modal/AddModal/AddModal";
 
 export default {
   name: "Table",
-  components: { EditModalProjects, EditModalUsers, EditModalRoles },
+  components: { AddModal, EditModal },
   props: ["headers", "body"],
   data: () => ({
     tableName: "",
     search: "",
     editModal: false,
+    addModal: false,
     currentItem: null
   }),
   mounted() {
@@ -76,10 +64,13 @@ export default {
       this.editModal = !this.editModal;
       this.currentItem = item;
     },
+    toggleAddModal() {
+      this.addModal = !this.addModal;
+    },
     deleteItem(item) {
       const index = this.body.indexOf(item);
       confirm("Are you sure you want to delete this item?") &&
-        deleteTableItem("/api/projects", index, this.forceUpdate);
+        deleteTableItem(`api/${this.tableName}`, index, this.forceUpdate);
     }
   }
 };
